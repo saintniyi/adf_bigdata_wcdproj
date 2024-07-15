@@ -1,0 +1,48 @@
+{
+	"name": "AzBlobProdCatSourceDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LnkSvc_AzureLakeGen2_Using_KV",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "ADF-Exercise-Datasets"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "SalesLT.ProductCategory.csv",
+				"fileSystem": "output"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "ProductCategoryID",
+				"type": "String"
+			},
+			{
+				"name": "ParentProductCategoryID",
+				"type": "String"
+			},
+			{
+				"name": "Name",
+				"type": "String"
+			},
+			{
+				"name": "rowguid",
+				"type": "String"
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,89 @@
+{
+	"name": "ParentDynamicLookupPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "DynamicLookupPipeline",
+				"description": "Dynamically get schema and table names dynamically using query. ",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "Select table_schema, table_name from Information_Schema.tables \nwhere table_name like 'Product%'",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzureSqlAddressDS",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "ForEach1",
+				"description": "This pipeline depends on DynamicMultipleCopyPipeline. The DynamicMultipleCopyPipeline is executed as an activity within this ForEach activity.",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "DynamicLookupPipeline",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('DynamicLookupPipeline').output.value",
+						"type": "Expression"
+					},
+					"isSequential": false,
+					"activities": [
+						{
+							"name": "Execute Pipeline1",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "DynamicMultipleCopyPipeline",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true,
+								"parameters": {
+									"schema": {
+										"value": "@item().table_schema",
+										"type": "Expression"
+									},
+									"tablename": {
+										"value": "@item().table_name",
+										"type": "Expression"
+									}
+								}
+							}
+						}
+					]
+				}
+			}
+		],
+		"folder": {
+			"name": "ADF-Demo-Pipelines"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-05-30T01:52:08Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

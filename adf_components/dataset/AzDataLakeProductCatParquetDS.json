@@ -1,0 +1,24 @@
+{
+	"name": "AzDataLakeProductCatParquetDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LnkSvc_AzureLakeGen2_Using_MI",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "ADF-Demo-Datasets"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "ProductCategory.snappy.parquet",
+				"fileSystem": "input"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

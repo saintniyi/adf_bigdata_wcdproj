@@ -1,0 +1,9 @@
+{
+	"name": "df-demoOne",
+	"location": "canadacentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "07fa6c4f-c5b1-4f6e-8f75-088e5a1c652a",
+		"tenantId": "6e1e8d1f-6c43-4998-8a80-2a5133cc2e11"
+	}
+}

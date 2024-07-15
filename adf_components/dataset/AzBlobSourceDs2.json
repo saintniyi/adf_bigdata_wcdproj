@@ -1,0 +1,117 @@
+{
+	"name": "AzBlobSourceDs2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LnkSvc_AzureLakeGen2_Using_KV",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "ADF-Exercise-Datasets"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "item.csv",
+				"folderPath": "ExternalData",
+				"fileSystem": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "i_item_sk",
+				"type": "String"
+			},
+			{
+				"name": "i_item_id",
+				"type": "String"
+			},
+			{
+				"name": "i_rec_start_date",
+				"type": "String"
+			},
+			{
+				"name": "i_rec_end_date",
+				"type": "String"
+			},
+			{
+				"name": "i_item_desc",
+				"type": "String"
+			},
+			{
+				"name": "i_current_price",
+				"type": "String"
+			},
+			{
+				"name": "i_wholesale_cost",
+				"type": "String"
+			},
+			{
+				"name": "i_brand_id",
+				"type": "String"
+			},
+			{
+				"name": "i_brand",
+				"type": "String"
+			},
+			{
+				"name": "i_class_id",
+				"type": "String"
+			},
+			{
+				"name": "i_class",
+				"type": "String"
+			},
+			{
+				"name": "i_category_id",
+				"type": "String"
+			},
+			{
+				"name": "i_category",
+				"type": "String"
+			},
+			{
+				"name": "i_manufact_id",
+				"type": "String"
+			},
+			{
+				"name": "i_manufact",
+				"type": "String"
+			},
+			{
+				"name": "i_size",
+				"type": "String"
+			},
+			{
+				"name": "i_formulation",
+				"type": "String"
+			},
+			{
+				"name": "i_color",
+				"type": "String"
+			},
+			{
+				"name": "i_units",
+				"type": "String"
+			},
+			{
+				"name": "i_container",
+				"type": "String"
+			},
+			{
+				"name": "i_manager_id",
+				"type": "String"
+			},
+			{
+				"name": "i_product_name",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

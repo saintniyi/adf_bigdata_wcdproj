@@ -1,0 +1,148 @@
+{
+	"name": "MultipleDynamicParquetDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LnkSvc_AzureLakeGen2_Using_MI",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"filename": {
+				"type": "string",
+				"defaultValue": "filenamePlaceholder"
+			}
+		},
+		"folder": {
+			"name": "ADF-Demo-Datasets"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().filename",
+					"type": "Expression"
+				},
+				"fileSystem": "input"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "ProductKey",
+				"type": "INT32"
+			},
+			{
+				"name": "ProductAlternateKey",
+				"type": "UTF8"
+			},
+			{
+				"name": "ProductSubcategoryKey",
+				"type": "INT32"
+			},
+			{
+				"name": "WeightUnitMeasureCode",
+				"type": "UTF8"
+			},
+			{
+				"name": "SizeUnitMeasureCode",
+				"type": "UTF8"
+			},
+			{
+				"name": "EnglishProductName",
+				"type": "UTF8"
+			},
+			{
+				"name": "SpanishProductName",
+				"type": "UTF8"
+			},
+			{
+				"name": "FrenchProductName",
+				"type": "UTF8"
+			},
+			{
+				"name": "StandardCost",
+				"type": "DECIMAL",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "FinishedGoodsFlag",
+				"type": "BOOLEAN"
+			},
+			{
+				"name": "Color",
+				"type": "UTF8"
+			},
+			{
+				"name": "SafetyStockLevel",
+				"type": "INT32"
+			},
+			{
+				"name": "ReorderPoint",
+				"type": "INT32"
+			},
+			{
+				"name": "ListPrice",
+				"type": "DECIMAL",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "Size",
+				"type": "UTF8"
+			},
+			{
+				"name": "SizeRange",
+				"type": "UTF8"
+			},
+			{
+				"name": "Weight",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "DaysToManufacture",
+				"type": "INT32"
+			},
+			{
+				"name": "ProductLine",
+				"type": "UTF8"
+			},
+			{
+				"name": "DealerPrice",
+				"type": "DECIMAL",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "Class",
+				"type": "UTF8"
+			},
+			{
+				"name": "Style",
+				"type": "UTF8"
+			},
+			{
+				"name": "ModelName",
+				"type": "UTF8"
+			},
+			{
+				"name": "EnglishDescription",
+				"type": "UTF8"
+			},
+			{
+				"name": "StartDate",
+				"type": "INT96"
+			},
+			{
+				"name": "EndDate",
+				"type": "INT96"
+			},
+			{
+				"name": "Status",
+				"type": "UTF8"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

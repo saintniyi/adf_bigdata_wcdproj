@@ -1,0 +1,48 @@
+{
+	"name": "CsvDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LnkSvc_AzureLakeGen2",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "ADF-Demo-Datasets"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "AddressBakup2.csv",
+				"fileSystem": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "EmployeeID",
+				"type": "String"
+			},
+			{
+				"name": "LastName",
+				"type": "String"
+			},
+			{
+				"name": "FirstName",
+				"type": "String"
+			},
+			{
+				"name": "OccupationID",
+				"type": "String"
+			},
+			{
+				"name": "OccupationTitle",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

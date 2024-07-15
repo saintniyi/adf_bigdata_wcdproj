@@ -1,0 +1,20 @@
+{
+	"name": "LnkSvc_AzureSqlDb_Using_KV",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "Link Service pointing to Azure Sql Db using key vault",
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=dsqldb-server.database.windows.net;Initial Catalog=sqldbDemo;User ID=serveradmin",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "LnkSvc_DF_Access_Keyvault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "sqldb-password"
+			}
+		}
+	}
+}

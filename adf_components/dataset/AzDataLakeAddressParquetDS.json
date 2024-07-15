@@ -1,0 +1,24 @@
+{
+	"name": "AzDataLakeAddressParquetDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LnkSvc_AzureLakeGen2",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "ADF-Demo-Datasets"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "AddressUpsert.snappy.parquet",
+				"fileSystem": "input"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

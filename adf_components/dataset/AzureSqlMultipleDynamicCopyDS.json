@@ -1,0 +1,36 @@
+{
+	"name": "AzureSqlMultipleDynamicCopyDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LnkSvc_AzureSqlDb_Using_KV",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"schema": {
+				"type": "string",
+				"defaultValue": "schemaPlaceholder"
+			},
+			"tablename": {
+				"type": "string",
+				"defaultValue": "tablenamePlaceholder"
+			}
+		},
+		"folder": {
+			"name": "ADF-Demo-Datasets"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().tablename",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

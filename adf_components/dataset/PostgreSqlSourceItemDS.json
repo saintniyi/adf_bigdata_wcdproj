@@ -1,0 +1,20 @@
+{
+	"name": "PostgreSqlSourceItemDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LnkSvc_PostgreSql",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "ADF-Exercise-Datasets"
+		},
+		"annotations": [],
+		"type": "PostgreSqlV2Table",
+		"schema": [],
+		"typeProperties": {
+			"schema": "raw_st",
+			"table": "item"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
