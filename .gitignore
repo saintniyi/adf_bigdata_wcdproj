@@ -1,0 +1,11 @@
+/publish/
+/bin/
+/obj/
+*.publish.xml
+*.publishproj
+/config/*.json
+/config/*.xml
+.env
+*.env
+/secrets/
+/keys/
